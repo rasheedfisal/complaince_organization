@@ -12,6 +12,7 @@ import MobileSubMenu from "./MobileSubMenu";
 import MobileMainMenu from "./MobileMainMenu";
 import DesktopMenu from "./DesktopMenu";
 import Link from "next/link";
+import { useStateContext } from "@/context/AppConext";
 
 type NavProps = {
   setIsMobileMainMenuOpen: Dispatch<SetStateAction<boolean>>;
@@ -48,6 +49,7 @@ const NavBar = ({
   handleUserSpace,
   handleSideMenuSpace,
 }: NavProps) => {
+  const stateContext = useStateContext();
   return (
     <header className="relative bg-white dark:bg-darker">
       <div className="flex items-center justify-between p-2 border-b dark:border-primary-darker">
@@ -100,7 +102,7 @@ const NavBar = ({
             href="/home"
             className="inline-block text-2xl pl-3 font-bold tracking-wider uppercase text-primary-dark dark:text-light"
           >
-            Compliance
+            {stateContext.state.authUser?.organization.name}
           </Link>
         </div>
 

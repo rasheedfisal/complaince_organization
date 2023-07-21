@@ -57,7 +57,46 @@ const Profile = () => {
       {/* <div className="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
         <h1 className="text-2xl font-semibold">Profile</h1>
       </div> */}
-      <div className="mt-5">
+      <div className="mt-5 space-y-2">
+        <div className="min-w-full rounded gap-5">
+          <div className="px-4 py-6 rounded-md bg-white dark:bg-darker">
+            <span className="text-gray-600 font-bold">
+              Organization Details
+            </span>
+            <div className="flex flex-col space-y-2 mt-2">
+              <div className="flex flex-wrap">
+                <div className="flex flex-1 gap-3">
+                  <label className="text-sm font-medium">Name {":"}</label>
+                  <span className="text-sm">
+                    {stateContext.state.authUser?.organization.name}
+                  </span>
+                </div>
+                <div className="flex flex-1 gap-3">
+                  <label className="text-sm font-medium">
+                    Email Domain {":"}
+                  </label>
+                  <span className="text-sm">
+                    {stateContext.state.authUser?.organization.email_domain}
+                  </span>
+                </div>
+              </div>
+              <div className="flex flex-wrap">
+                <div className="flex flex-1 gap-3">
+                  <label className="text-sm font-medium">Code {":"}</label>
+                  <span className="text-sm">
+                    {stateContext.state.authUser?.organization.code}
+                  </span>
+                </div>
+                <div className="flex flex-1 gap-3">
+                  <label className="text-sm font-medium">Type {":"}</label>
+                  <span className="text-sm">
+                    {stateContext.state.authUser?.organization.type}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="min-w-full rounded gap-5 lg:grid lg:grid-cols-3">
           <div className="lg:block lg:col-span-1 px-4 py-6  rounded-md bg-white dark:bg-darker">
             {/* <div className="w-full relative px-4 py-6 space-y-6 bg-white rounded-md dark:bg-darker"> */}

@@ -59,6 +59,7 @@ export interface IUser {
   created_at: Date;
   role: string;
   permissions: string[];
+  organization: IOrganization;
 }
 
 export interface ICreateUpdateDomain {

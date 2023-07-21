@@ -199,12 +199,13 @@ const DesktopMenu = ({
           className="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
         >
           <span className="sr-only">User menu</span>
-
-          <span className="relative inline-flex items-center justify-center w-11 h-11 p-2 overflow-hidden text-primary-lighter bg-primary-50 rounded-full hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker">
-            <span className="font-bold text-primary-lighter dark:text-gray-300">
-              {stateContext.state.authUser?.name.substring(0, 2).toUpperCase()}
-            </span>
-          </span>
+          {/* <span className="relative inline-flex items-center justify-center w-11 h-11 p-2 overflow-hidden text-primary-lighter bg-primary-50 rounded-full hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"> */}
+          <img
+            className="w-11 h-11 rounded-full bg-primary-50"
+            src={stateContext.state.authUser?.organization.logo ?? "/noImg.jpg"}
+            alt="avatar"
+          />
+          {/* </span> */}
         </button>
 
         {/* <!-- User dropdown menu --> */}
