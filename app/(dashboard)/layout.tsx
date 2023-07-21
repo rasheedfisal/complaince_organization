@@ -83,7 +83,7 @@ export default function RootLayout({
     }
   };
 
-  const [color, setColor] = useLocalStorage("color", "cyan");
+  const [color, setColor] = useLocalStorage("color", "violet");
 
   const variants = {
     inactive: {
