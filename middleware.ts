@@ -8,9 +8,17 @@ export function middleware(request: NextRequest) {
   if (!verify) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
+
+  if (
+    verify &&
+    (request.nextUrl.pathname.startsWith("/login") ||
+      request.nextUrl.pathname === "/")
+  ) {
+    return NextResponse.redirect(new URL("/home", request.url));
+  }
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/home", "/domains", "/profile"],
+  matcher: ["/home", "/domains", "/profile", "/subdomains", "/verified"],
 };
