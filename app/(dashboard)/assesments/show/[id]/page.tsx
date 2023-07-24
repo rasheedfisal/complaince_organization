@@ -335,10 +335,12 @@ const Show = ({ params: { id } }: PageProps) => {
                       ]?.target_date?.toString() ?? "N/A"}
                     </span>
                   </div>
-                  <label className="text-sm font-medium">Name {":"}</label>
-                  <span className="text-sm">
-                    {data?.controls[pageInfo.pageNumber]?.control.name}
-                  </span>
+                  <div className="flex gap-3">
+                    <label className="text-sm font-medium">Name {":"}</label>
+                    <span className="text-sm">
+                      {data?.controls[pageInfo.pageNumber]?.control.name}
+                    </span>
+                  </div>
                   <div className="flex gap-3">
                     <label className="text-sm font-medium">Code {":"}</label>
                     <span className="text-sm">
