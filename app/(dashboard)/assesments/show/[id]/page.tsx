@@ -217,7 +217,7 @@ const Show = ({ params: { id } }: PageProps) => {
               <div className="flex justify-start gap-3">
                 <Avatar>
                   <AvatarImage
-                    className="h-14 w-14"
+                    className="h-24 w-24"
                     src={data?.regulator.logo}
                   />
                   <AvatarFallback>CN</AvatarFallback>
