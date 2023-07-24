@@ -216,7 +216,10 @@ const Show = ({ params: { id } }: PageProps) => {
               <Separator className="my-2" />
               <div className="flex justify-start gap-3">
                 <Avatar>
-                  <AvatarImage className="h-6 w-6" src={data?.regulator.logo} />
+                  <AvatarImage
+                    className="h-14 w-14"
+                    src={data?.regulator.logo}
+                  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col space-y-2">
