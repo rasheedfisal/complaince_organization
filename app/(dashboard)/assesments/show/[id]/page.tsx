@@ -216,18 +216,14 @@ const Show = ({ params: { id } }: PageProps) => {
               <Separator className="my-2" />
               <div className="flex justify-start gap-3">
                 <Avatar>
-                  <AvatarImage src={data?.regulator.logo} />
+                  <AvatarImage className="h-6 w-6" src={data?.regulator.logo} />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col space-y-2">
                   <div className="flex gap-3">
-                    <label className="text-sm font-medium">Name {":"}</label>
                     <span className="text-sm">{data?.regulator.name}</span>
                   </div>
                   <div className="flex gap-3">
-                    <label className="text-sm font-medium">
-                      Email Domain {":"}
-                    </label>
                     <span className="text-sm">
                       {data?.regulator.email_domain}
                     </span>
@@ -265,43 +261,29 @@ const Show = ({ params: { id } }: PageProps) => {
           >
             <div className="min-w-full rounded gap-5  lg:grid">
               <div className="px-4 py-6 rounded-md bg-white dark:bg-darker">
-                <div className="flex flex-col space-y-2 my-3">
-                  <span className="text-gray-600 font-bold">{"Control:"}</span>
-                  <Separator className="my-2" />
-                  <div className="flex gap-3">
-                    <label className="text-sm font-medium">Status {":"}</label>
-                    <span className="text-sm">
-                      <AssesmentBadge
-                        status={
-                          data?.controls[pageInfo.pageNumber]?.status ?? "N/A"
-                        }
-                      />
-                    </span>
-                  </div>
-                  <div className="flex gap-3">
-                    <label className="text-sm font-medium">
-                      Target Date {":"}
-                    </label>
-                    <span className="text-sm">
-                      {data?.controls[
-                        pageInfo.pageNumber
-                      ]?.target_date?.toString() ?? "N/A"}
-                    </span>
-                  </div>
-                  <label className="text-sm font-medium">Name {":"}</label>
-                  <ScrollArea className="h-52 w-full rounded-md border p-2">
-                    <span className="text-sm">
-                      {data?.controls[pageInfo.pageNumber]?.control.name}
-                    </span>
-                  </ScrollArea>
-                  <div className="flex gap-3">
-                    <label className="text-sm font-medium">Code {":"}</label>
-                    <span className="text-sm">
-                      {data?.controls[pageInfo.pageNumber]?.control.code}
-                    </span>
-                  </div>
-                </div>
                 <div className="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-36">
+                  <div className="flex flex-col space-y-2">
+                    <span className="text-gray-600 font-bold">{"Domain:"}</span>
+                    <Separator />
+                    <div className="flex gap-3">
+                      <label className="text-sm font-medium">{"Name:"}</label>
+                      <span className="text-sm">
+                        {
+                          data?.controls[pageInfo.pageNumber]?.control
+                            .sub_domain.domain.name
+                        }
+                      </span>
+                    </div>
+                    <div className="flex gap-3">
+                      <label className="text-sm font-medium">Code {":"}</label>
+                      <span className="text-sm">
+                        {
+                          data?.controls[pageInfo.pageNumber]?.control
+                            .sub_domain.domain.code
+                        }
+                      </span>
+                    </div>
+                  </div>
                   <div className="flex flex-col space-y-2">
                     <span className="text-gray-600 font-bold">
                       {"Sub Domain:"}
@@ -326,27 +308,39 @@ const Show = ({ params: { id } }: PageProps) => {
                       </span>
                     </div>
                   </div>
-                  <div className="flex flex-col space-y-2">
-                    <span className="text-gray-600 font-bold">{"Domain:"}</span>
-                    <Separator />
-                    <div className="flex gap-3">
-                      <label className="text-sm font-medium">{"Name:"}</label>
-                      <span className="text-sm">
-                        {
-                          data?.controls[pageInfo.pageNumber]?.control
-                            .sub_domain.domain.name
+                </div>
+                <div className="flex flex-col space-y-2 my-3">
+                  <span className="text-gray-600 font-bold">{"Control:"}</span>
+                  <Separator className="my-2" />
+                  <div className="flex gap-3">
+                    <label className="text-sm font-medium">Status {":"}</label>
+                    <span className="text-sm">
+                      <AssesmentBadge
+                        status={
+                          data?.controls[pageInfo.pageNumber]?.status ?? "N/A"
                         }
-                      </span>
-                    </div>
-                    <div className="flex gap-3">
-                      <label className="text-sm font-medium">Code {":"}</label>
-                      <span className="text-sm">
-                        {
-                          data?.controls[pageInfo.pageNumber]?.control
-                            .sub_domain.domain.code
-                        }
-                      </span>
-                    </div>
+                      />
+                    </span>
+                  </div>
+                  <div className="flex gap-3">
+                    <label className="text-sm font-medium">
+                      Target Date {":"}
+                    </label>
+                    <span className="text-sm">
+                      {data?.controls[
+                        pageInfo.pageNumber
+                      ]?.target_date?.toString() ?? "N/A"}
+                    </span>
+                  </div>
+                  <label className="text-sm font-medium">Name {":"}</label>
+                  <span className="text-sm">
+                    {data?.controls[pageInfo.pageNumber]?.control.name}
+                  </span>
+                  <div className="flex gap-3">
+                    <label className="text-sm font-medium">Code {":"}</label>
+                    <span className="text-sm">
+                      {data?.controls[pageInfo.pageNumber]?.control.code}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -379,7 +373,7 @@ const Show = ({ params: { id } }: PageProps) => {
                         />
                       </div>
                       <div className="grid grid-cols-1">
-                        <FormTextArea label="Reply" rows={15} name="reply" />
+                        <FormTextArea label="Reply" rows={3} name="reply" />
                       </div>
                       <div className="flex">
                         <SubmitButton
