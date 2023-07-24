@@ -215,7 +215,7 @@ const Show = ({ params: { id } }: PageProps) => {
               <span className="text-gray-600 font-bold">{"Regulator:"}</span>
               <Separator className="my-2" />
               <div className="flex justify-start gap-3">
-                <Avatar>
+                <Avatar className="h-24 w-24">
                   <AvatarImage
                     className="h-24 w-24"
                     src={data?.regulator.logo}
