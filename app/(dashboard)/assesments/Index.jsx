@@ -15,7 +15,7 @@ import useUpdateEffect from "@/hooks/useUpdateEffect";
 import { useRouter } from "next/navigation";
 import SearchIcon from "@/icons/SearchIcon";
 import { BASE_URL } from "@/api/axios";
-import { toast } from "react-toastify";
+import AssesmentBadge from "@/components/AssesmentBadge";
 
 const Index = () => {
   const token = Cookies.get("AT");
@@ -51,6 +51,15 @@ const Index = () => {
         },
       ],
       columnDefs: [
+        {
+          targets: [3],
+          createdCell: (td, cellData, rowData) =>
+            createRoot(td).render(
+              <div className="flex">
+                <AssesmentBadge status={cellData ?? "N/A"} />
+              </div>
+            ),
+        },
         {
           targets: [6],
           createdCell: (td, cellData, rowData) =>
