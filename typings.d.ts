@@ -174,3 +174,50 @@ export interface IOnBoardingsFullInfo extends IOnBoardings {
   organization: IOrganization;
   regulator: IRegulators;
 }
+
+export interface IAssesment {
+  id: number;
+  organization_id: string;
+  regulator_id: number;
+  framework: string;
+  code: string;
+  status: string;
+  due_date?: Date;
+  created_at: Date;
+}
+
+export interface IAssesmentControl {
+  id: number;
+  assesment_id: string;
+  control_id: string;
+  maturity_level: string;
+  target_date: Date;
+  updated_at: Date;
+  created_at: Date;
+}
+
+export interface IEvidances {
+  id: number;
+  assesment_control_id: string;
+  type: string;
+  file: string;
+  notes: string;
+  created_at: string;
+}
+
+export interface IAssesmentControlFullInfo extends IAssesmentControl {
+  regulator_feedback?: string;
+  reply: string;
+  status?: string;
+  control: IControls & {
+    sub_domain: ISubDomain & {
+      domain: IDomain;
+    };
+  };
+  evidances: IEvidances[];
+}
+
+export interface IAssesmentFullInfo extends IAssesment {
+  regulator: IRegulators;
+  controls: IAssesmentControlFullInfo[];
+}

@@ -41,3 +41,10 @@ export const updateRegulatorSchema = object({
     .email("Email Address is invalid"),
   logo: z.custom<File>().optional(),
 }).partial();
+
+export const createEvidenceSchema = object({
+  notes: string().min(1, "Name is required"),
+  file: z.custom<File>((v) => v instanceof File, {
+    message: "File is required",
+  }),
+});

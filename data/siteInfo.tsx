@@ -9,6 +9,7 @@ import {
   DocumentTextIcon,
   InboxIcon,
   InboxStackIcon,
+  RectangleGroupIcon,
 } from "@heroicons/react/24/solid";
 
 interface ILinksII {
@@ -33,29 +34,9 @@ export const links: ILinksII[] = [
     path: "/subdomains",
     icon: <CurrencyBangladeshiIcon className="w-5 h-5" />,
   },
-  // {
-  //   title: "Controls",
-  //   path: "/controls",
-  //   icon: <AdjustmentsVerticalIcon className="w-5 h-5" />,
-  // },
-  // {
-  //   title: "Regulators",
-  //   path: "/regulators",
-  //   icon: <Cog6ToothIcon className="w-5 h-5" />,
-  // },
-  // {
-  //   title: "Orgnanizations",
-  //   path: "/organizations",
-  //   icon: <HandRaisedIcon className="w-5 h-5" />,
-  // },
-  // {
-  //   title: "Logs",
-  //   path: "/logs",
-  //   icon: <DocumentTextIcon className="w-5 h-5" />,
-  // },
-  // {
-  //   title: "Onboardings",
-  //   path: "/onboardings",
-  //   icon: <InboxIcon className="w-5 h-5" />,
-  // },
+  {
+    title: "Assesments",
+    path: "/assesments",
+    icon: <RectangleGroupIcon className="w-5 h-5" />,
+  },
 ];

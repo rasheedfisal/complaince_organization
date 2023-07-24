@@ -28,3 +28,16 @@ export const getRegulatorListFn = async () => {
   );
   return response.data;
 };
+
+export const getMaturityLevelListFn = async () => {
+  const response = await privateAuthApi.get<IResponse<string[]>>(
+    `/selectables/maturity-levels`
+  );
+  return response.data;
+};
+export const getAssesmentStatusListFn = async () => {
+  const response = await privateAuthApi.get<IResponse<string[]>>(
+    `/selectables/assesment-status`
+  );
+  return response.data;
+};
