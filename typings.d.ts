@@ -221,3 +221,23 @@ export interface IAssesmentFullInfo extends IAssesment {
   regulator: IRegulators;
   controls: IAssesmentControlFullInfo[];
 }
+
+export interface IContributor {
+  id: string;
+  assesment_id: string;
+  user_id: string;
+  role: string;
+  created_at: Date;
+  user: {
+    id: string;
+    name: string;
+    email: string;
+    email_verified_at: Date | null;
+  };
+}
+export interface IAssignUpdateContributor {
+  assesment_id: string;
+  user_id: string;
+  role: string;
+}
+export type IRevokeContributor = Omit<IAssignUpdateContributor, "role">;

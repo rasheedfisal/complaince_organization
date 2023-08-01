@@ -1,4 +1,10 @@
-import { IOrganization, IRegulators, IResponse, IUser } from "@/typings";
+import {
+  IAssesment,
+  IOrganization,
+  IRegulators,
+  IResponse,
+  IUser,
+} from "@/typings";
 import { privateAuthApi } from "./axios";
 
 type users = Omit<IUser, "role" | "permissions">;
@@ -38,6 +44,28 @@ export const getMaturityLevelListFn = async () => {
 export const getAssesmentStatusListFn = async () => {
   const response = await privateAuthApi.get<IResponse<string[]>>(
     `/selectables/assesment-status`
+  );
+  return response.data;
+};
+
+export const getAssesmentListFn = async () => {
+  const response = await privateAuthApi.get<IResponse<IAssesment[]>>(
+    `/regulators/assesments`
+  );
+  return response.data;
+};
+export const getContributionRolesListFn = async () => {
+  const response = await privateAuthApi.get<IResponse<string[]>>(
+    `/selectables/contribution-roles`
+  );
+  return response.data;
+};
+
+type Staff = IUser & { user_id: string };
+
+export const getAllStaffListFn = async () => {
+  const response = await privateAuthApi.get<IResponse<Staff[]>>(
+    `/regulators/staff`
   );
   return response.data;
 };
