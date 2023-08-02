@@ -86,7 +86,7 @@ const AddContributor = ({ id, contributors }: pageProp) => {
       onSuccess: ({ message }) => {
         toast.success(message);
         setOpen((prev) => !prev);
-        queryClient.invalidateQueries(["regulator-contributor"]);
+        queryClient.invalidateQueries(["org-contributor"]);
         // router.push("/assesments");
       },
       onError: (error: any) => {

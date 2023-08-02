@@ -75,7 +75,7 @@ const Show = ({ params: { id } }: PageProps) => {
         retry: 1,
         onError: (error: any) => {
           if ((error as any).response?.data?.message) {
-            toast.error((error as any).response?.data?.message, {
+            toast.error(`${(error as any).response?.data?.message}`, {
               position: "top-right",
             });
           }
@@ -89,7 +89,7 @@ const Show = ({ params: { id } }: PageProps) => {
         retry: 1,
         onError: (error: any) => {
           if ((error as any).response?.data?.message) {
-            toast.error((error as any).response?.data?.message, {
+            toast.error(`${(error as any).response?.data?.message}`, {
               position: "top-right",
             });
           }
@@ -103,7 +103,7 @@ const Show = ({ params: { id } }: PageProps) => {
         retry: 1,
         onError: (error: any) => {
           if ((error as any).response?.data?.message) {
-            toast.error((error as any).response?.data?.message, {
+            toast.error(`${(error as any).response?.data?.message}`, {
               position: "top-right",
             });
           }
@@ -295,7 +295,7 @@ const Show = ({ params: { id } }: PageProps) => {
                   <ScrollArea className="h-56 w-full rounded-md border">
                     <Table className="w-full overflow-hidden">
                       <TableCaption>
-                        {OrgCont.isLoading
+                        {regulatorCont.isLoading
                           ? "loading..."
                           : "A list of your contributors."}
                       </TableCaption>

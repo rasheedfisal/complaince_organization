@@ -50,7 +50,7 @@ export const getAssesmentStatusListFn = async () => {
 
 export const getAssesmentListFn = async () => {
   const response = await privateAuthApi.get<IResponse<IAssesment[]>>(
-    `/regulators/assesments`
+    `/organizations/assesments`
   );
   return response.data;
 };
@@ -65,7 +65,7 @@ type Staff = IUser & { user_id: string };
 
 export const getAllStaffListFn = async () => {
   const response = await privateAuthApi.get<IResponse<Staff[]>>(
-    `/regulators/staff`
+    `/organizations/staff`
   );
   return response.data;
 };
