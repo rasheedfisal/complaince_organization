@@ -115,7 +115,7 @@ const Add = () => {
                   label="Email Username"
                   type="text"
                   //   icon={<EnvelopeIcon className="w-4 h-4" />}
-                  text={`@${stateContext.state.authUser?.regulator.email_domain}`}
+                  text={`@${stateContext.state.authUser?.organization.email_domain}`}
                 />
               </div>
               <div className="grid grid-cols-1">
